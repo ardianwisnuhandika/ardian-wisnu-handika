@@ -1,0 +1,159 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPJ4TTdYQd9EIxpC51WlfOs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ardianwisnuhandika/ardian-wisnu-handika/blob/main/tugas_ArdianWisnuHandika_231240001381\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Hn5rrGsMNtQk",
+        "outputId": "64e15de1-b725-4744-ced5-1614eabeb811"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Konversi Sistem Bilangan:\n",
+            "1. Biner ke Desimal, Oktal, Heksadesimal\n",
+            "2. Desimal ke Biner, Oktal, Heksadesimal\n",
+            "3. Oktal ke Biner, Desimal, Heksadesimal\n",
+            "4. Heksadesimal ke Biner, Desimal, Oktal\n",
+            "5. Keluar\n",
+            "Pilih jenis konversi (1-5): 3\n",
+            "Masukkan bilangan oktal: 50\n",
+            "Biner: 101000\n",
+            "Desimal: 40\n",
+            "Heksadesimal: 28\n"
+          ]
+        }
+      ],
+      "source": [
+        "def biner_to_desimal(biner):\n",
+        "    return int(biner, 2)\n",
+        "\n",
+        "def biner_to_oktal(biner):\n",
+        "    desimal = biner_to_desimal(biner)\n",
+        "    return oct(desimal)[2:]\n",
+        "\n",
+        "def biner_to_heksadesimal(biner):\n",
+        "    desimal = biner_to_desimal(biner)\n",
+        "    return hex(desimal)[2:]\n",
+        "\n",
+        "def desimal_to_biner(desimal):\n",
+        "    return bin(desimal)[2:]\n",
+        "\n",
+        "def desimal_to_oktal(desimal):\n",
+        "    return oct(desimal)[2:]\n",
+        "\n",
+        "def desimal_to_heksadesimal(desimal):\n",
+        "    return hex(desimal)[2:]\n",
+        "\n",
+        "def oktal_to_biner(oktal):\n",
+        "    desimal = int(oktal, 8)\n",
+        "    return bin(desimal)[2:]\n",
+        "\n",
+        "def oktal_to_desimal(oktal):\n",
+        "    return int(oktal, 8)\n",
+        "\n",
+        "def oktal_to_heksadesimal(oktal):\n",
+        "    desimal = int(oktal, 8)\n",
+        "    return hex(desimal)[2:]\n",
+        "\n",
+        "def heksadesimal_to_biner(heksadesimal):\n",
+        "    desimal = int(heksadesimal, 16)\n",
+        "    return bin(desimal)[2:]\n",
+        "\n",
+        "def heksadesimal_to_desimal(heksadesimal):\n",
+        "    return int(heksadesimal, 16)\n",
+        "\n",
+        "def heksadesimal_to_oktal(heksadesimal):\n",
+        "    desimal = int(heksadesimal, 16)\n",
+        "    return oct(desimal)[2:]\n",
+        "\n",
+        "def main():\n",
+        "    print(\"Konversi Sistem Bilangan:\")\n",
+        "    print(\"1. Biner ke Desimal, Oktal, Heksadesimal\")\n",
+        "    print(\"2. Desimal ke Biner, Oktal, Heksadesimal\")\n",
+        "    print(\"3. Oktal ke Biner, Desimal, Heksadesimal\")\n",
+        "    print(\"4. Heksadesimal ke Biner, Desimal, Oktal\")\n",
+        "    print(\"5. Keluar\")\n",
+        "\n",
+        "    while True:\n",
+        "        try:\n",
+        "            pilihan = int(input(\"Pilih jenis konversi (1-5): \"))\n",
+        "\n",
+        "            if pilihan == 1:\n",
+        "                biner = input(\"Masukkan bilangan biner: \")\n",
+        "                if not all(c in '01' for c in biner):\n",
+        "                    print(\"Input tidak valid. Masukkan bilangan biner yang benar.\")\n",
+        "                    continue\n",
+        "                print(f\"Desimal: {biner_to_desimal(biner)}\")\n",
+        "                print(f\"Oktal: {biner_to_oktal(biner)}\")\n",
+        "                print(f\"Heksadesimal: {biner_to_heksadesimal(biner)}\")\n",
+        "\n",
+        "            elif pilihan == 2:\n",
+        "                desimal = int(input(\"Masukkan bilangan desimal: \"))\n",
+        "                print(f\"Biner: {desimal_to_biner(desimal)}\")\n",
+        "                print(f\"Oktal: {desimal_to_oktal(desimal)}\")\n",
+        "                print(f\"Heksadesimal: {desimal_to_heksadesimal(desimal)}\")\n",
+        "\n",
+        "            elif pilihan == 3:\n",
+        "                oktal = input(\"Masukkan bilangan oktal: \")\n",
+        "                if not all(c in '01234567' for c in oktal):\n",
+        "                    print(\"Input tidak valid. Masukkan bilangan oktal yang benar.\")\n",
+        "                    continue\n",
+        "                print(f\"Biner: {oktal_to_biner(oktal)}\")\n",
+        "                print(f\"Desimal: {oktal_to_desimal(oktal)}\")\n",
+        "                print(f\"Heksadesimal: {oktal_to_heksadesimal(oktal)}\")\n",
+        "\n",
+        "            elif pilihan == 4:\n",
+        "                heksadesimal = input(\"Masukkan bilangan heksadesimal: \")\n",
+        "                if not all(c in '0123456789abcdefABCDEF' for c in heksadesimal):\n",
+        "                    print(\"Input tidak valid. Masukkan bilangan heksadesimal yang benar.\")\n",
+        "                    continue\n",
+        "                print(f\"Biner: {heksadesimal_to_biner(heksadesimal)}\")\n",
+        "                print(f\"Desimal: {heksadesimal_to_desimal(heksadesimal)}\")\n",
+        "                print(f\"Oktal: {heksadesimal_to_oktal(heksadesimal)}\")\n",
+        "\n",
+        "            elif pilihan == 5:\n",
+        "                print(\"Terima kasih telah menggunakan program konversi!\")\n",
+        "                break\n",
+        "            else:\n",
+        "                print(\"Pilihan tidak valid. Silakan pilih antara 1-5.\")\n",
+        "        except ValueError:\n",
+        "            print(\"Input tidak valid. Silakan masukkan angka yang sesuai.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ]
+    }
+  ]
+}
